@@ -14,8 +14,9 @@ authentication and common middlewares.
 1.  Move into the new project and `git init`.
 1.  Replace all instances of `'express-api-template'` with your app name.
 1.  Install dependencies with `npm install`. 
-    - if this doesn't work then run `npm install --save bcryptjs && npm uninstall --save bcrypt` first then run `npm install` again.
+    - if this doesn't work then run `npm install --save bcryptjs && npm uninstall --save bcrypt` first then run `npm install` again. (make sure you replace every instance of `require('bcrypt')` in your app into `require('bcryptjs')`
 1.  Ensure that you have `nodemon` installed by running `npm install -g nodemon`.
+1.  Don't forget to start running `mongod`.
 1.  Ensure the API is functioning properly by running `npm run server`.
 1.  Once everything is working, make an initial commit.
 
