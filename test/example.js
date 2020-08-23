@@ -1,4 +1,4 @@
-process.env.TESTENV = true
+process.env.TEST_ENV = true
 
 let Example = require('../app/models/example.js')
 let User = require('../app/models/user')

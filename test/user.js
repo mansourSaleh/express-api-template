@@ -1,4 +1,4 @@
-process.env.TESTENV = true
+process.env.TEST_ENV = true
 
 const bcrypt = require('bcrypt')
 const User = require('../app/models/user')

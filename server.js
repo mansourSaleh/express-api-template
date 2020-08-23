@@ -1,6 +1,6 @@
 // require necessary NPM packages
 const express = require('express')
-const bodyParser = require('body-parser')
+
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -30,9 +30,12 @@ const expressPort = 3000
 
 // establish database connection
 mongoose.Promise = global.Promise
-mongoose.connect(db, {
-  useMongoClient: true
-})
+mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+// connect
+mongoose.connect(db)
 
 // instantiate express application object
 const app = express()
@@ -55,9 +58,10 @@ app.use(auth)
 // add `bodyParser` middleware which will parse JSON requests into
 // JS objects before they reach the route files.
 // The method `.use` sets up middleware for the Express application
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(express.json())
 // this parses requests sent by `$.ajax`, which use a different content type
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.urlencoded({ extended: true }))
 
 // add request logger to create server log
 app.use(requestLogger)

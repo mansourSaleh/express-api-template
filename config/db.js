@@ -11,7 +11,8 @@ const database = {
 
 // Identify if development environment is test or development
 // select DB based on whether a test file was executed before `server.js`
-const localDb = process.env.TESTENV ? database.test : database.development
+const localDb = process.env.TEST_ENV ? database.test : database.development
+
 
 // Environment variable MONGODB_URI will be available in
 // heroku production evironment otherwise use test or development db
